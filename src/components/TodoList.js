@@ -1,29 +1,29 @@
-import { List } from "antd";
-import { useLocalStorageState } from "../hooks/useLocalStorageState";
-import { AddTodo } from "./AddTodo";
-import { TodoItem } from "./TodoItem";
+import { List } from 'antd';
+import { useLocalStorageState } from '../hooks/useLocalStorageState';
+import { AddTodo } from './AddTodo';
+import { TodoItem } from './TodoItem';
 
 export function TodoList() {
-  const [todo, setTodo] = useLocalStorageState("todo");
+  const [todo, setTodo] = useLocalStorageState('todo');
 
   function addTodo({ todo }) {
     const newTodo = { id: +new Date(), text: todo, completed: false };
     setTodos([...todos, newTodo]);
-    setTodo("");
+    setTodo('');
   }
-  const [todos, setTodos] = useLocalStorageState("todos", []);
+  const [todos, setTodos] = useLocalStorageState('todos', []);
 
   function toggleTodo(todo) {
     setTodos(
-      todos.map((item) => ({
+      todos.map(item => ({
         ...item,
         completed: todo.id === item.id ? !item.completed : item.completed,
-      }))
+      })),
     );
   }
 
   function deleteTodo(todo) {
-    setTodos(todos.filter((item) => item.id !== todo.id));
+    setTodos(todos.filter(item => item.id !== todo.id));
   }
 
   return (
@@ -32,8 +32,8 @@ export function TodoList() {
       <List
         bordered
         dataSource={[...todos].reverse()}
-        renderItem={(item) => (
-          <List.Item style={{ display: "block" }}>
+        renderItem={item => (
+          <List.Item style={{ display: 'block', background: 'white' }}>
             <TodoItem
               todo={item}
               toggleTodo={() => toggleTodo(item)}

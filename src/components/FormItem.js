@@ -1,10 +1,4 @@
-export default function FormItem({
-  type = "text",
-  label,
-  value,
-  onChange,
-  placeholder,
-}) {
+export default function FormItem({ type = 'text', label, value, onChange, placeholder }) {
   return (
     <div>
       <label htmlFor={label}>{label}</label>
@@ -13,7 +7,7 @@ export default function FormItem({
         id={label}
         placeholder={placeholder}
         value={value}
-        onChange={(e) => onChange(e.target.value)}
+        onChange={e => onChange(e.target.value)}
       />
     </div>
   );

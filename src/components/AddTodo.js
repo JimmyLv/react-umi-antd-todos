@@ -1,12 +1,8 @@
-import { Button, Form, Input } from 'antd'
+import { Button, Form, Input } from 'antd';
 
 export function AddTodo({ addTodo, todo, setTodo }) {
   return (
-    <Form
-      onFinish={addTodo}
-      onValuesChange={({ todo }) => setTodo(todo)}
-      initialValues={{ todo }}
-    >
+    <Form onFinish={addTodo} onValuesChange={({ todo }) => setTodo(todo)} initialValues={{ todo }}>
       <Form.Item
         label="Todo"
         name="todo"
@@ -21,5 +17,5 @@ export function AddTodo({ addTodo, todo, setTodo }) {
         </Button>
       </Form.Item>
     </Form>
-  )
+  );
 }
