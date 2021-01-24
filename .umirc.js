@@ -1,6 +1,13 @@
 // ref: https://umijs.org/config/
 export default {
   treeShaking: true,
+  proxy: {
+    '/api': {
+      target: 'http://jsonplaceholder.typicode.com/',
+      changeOrigin: true,
+      pathRewrite: { '^/api': '' },
+    },
+  },
   routes: [
     {
       path: '/',
